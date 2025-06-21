@@ -24,6 +24,8 @@ router.post('/', auth, authorize('restaurant_owner'), validateMenuItem, async (r
 
     // Verify restaurant ownership
     const restaurant = await Restaurant.findById(restaurantId);
+    // console.log('restaurant:', restaurant);
+    
     if (!restaurant || restaurant.owner.toString() !== req.user._id.toString()) {
       return res.status(403).json({ message: 'Access denied' });
     }

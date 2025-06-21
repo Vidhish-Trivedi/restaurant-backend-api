@@ -63,6 +63,7 @@ const validateMenuItem = (req, res, next) => {
     category: Joi.string().required(),
     price: Joi.number().min(0).required(),
     isVegetarian: Joi.boolean(),
+    restaurantId: Joi.string().optional(),
     tags: Joi.array().items(Joi.string())
   });
 
